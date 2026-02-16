@@ -23,8 +23,93 @@ header {
     height: 60px;
     background-color: var(--bg-sidebar);
     display: flex;
-    justify-content: space-between; 
     align-items: center;
     padding: 0 20px;
     border-bottom: 2px solid var(--accent-color); 
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.main-container {
+    display: flex; 
+    height: calc(100vh - 60px); 
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column; 
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column; 
+}
+
+.menu-link {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    transition: 0.3s;
+    color: var(--text-color);
+}
+
+.menu-link div { 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menu-link:hover {
+    background-color: var(--hover-color);
+    color: var(--accent-color);
+}
+
+.submenu {
+    display: none; 
+    list-style: none;
+    background-color: #161616; 
+}
+
+.submenu li {
+    padding: 12px 20px 12px 55px; 
+    font-size: 0.9rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submenu li:hover {
+    color: var(--accent-color);
+    background-color: #252525;
+}
+
+.menu-item.active .submenu {
+    display: block;
+}
+
+.menu-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+.arrow {
+    transition: transform 0.3s;
+    font-size: 0.8rem;
+}
+
+.content{
+    flex: 1;
+    padding: 30px;
+    overflow: y auto;
+    background-color: #121212;
 }
