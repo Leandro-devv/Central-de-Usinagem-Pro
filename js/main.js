@@ -1,9 +1,15 @@
-// 1. Pegamos o elemento do link na memória do PC
-const btnCalculadoras = document.querySelector('.menu-link');
-const caixaPai = document.querySelector('.menu-item');
 
-// 2. Criamos o "Ouvinte" (EventListener)
-// Quando o botão sofrer um 'click', ele executa a função depois da seta =>
-btnCalculadoras.addEventListener('click', () => {
-    caixaPai.classList.toggle('active');
+const dropdowns = document.querySelectorAll('.has-dropdown');
+
+dropdowns.forEach(item => {
+    const link = item.querySelector('.menu-link');
+    
+    link.addEventListener('click', () => {
+        dropdowns.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+        item.classList.toggle('active');
+    });
 });
