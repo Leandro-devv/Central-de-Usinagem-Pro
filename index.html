@@ -23,9 +23,9 @@
                             <span>Calculadoras</span>
                         </div>
                         <ul class="submenu">
-                            <li>RPM</li>
-                            <li>V. Corte</li>
-                            <li>Avanço</li>
+                            <li class="submenu-link" data-calculadora="containerCalculadoraRpm">RPM</li>
+                            <li class="submenu-link" data-calculadora="containerVelocidadeCorte">V. Corte</li>
+                            <li class="submenu-link" data-calculadora="containerAvanco">Avanço</li>
                         </ul>
                     </div>
                     <div class="menu-item has-dropdown">
@@ -34,9 +34,9 @@
                             <span>Tabelas</span>
                         </div>
                         <ul class="submenu">
-                            <li>Roscas</li>
-                            <li>Acabamentos</li>
-                            <li>Ajustes Rolamentos</li>
+                            <li class="submenu-link">Roscas</li>
+                            <li class="submenu-link">Acabamentos</li>
+                            <li class="submenu-link">Ajustes Rolamentos</li>
                         </ul>
                     </div>
                     <div class="menu-item has-dropdown">
@@ -45,16 +45,34 @@
                             <span>Engenharia</span>
                         </div>
                         <ul class="submenu">
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li class="submenu-link"></li>
+                            <li class="submenu-link"></li>
+                            <li class="submenu-link"></li>
                         </ul>
                     </div>
                 </nav>
             </aside>
             <main class="content">
-                <h1>Bem-vindo à Oficina Digital</h1>
-                <p>Selecione uma ferramenta no menu ao lado para começar.</p>
+                <div id="home-content">
+                    <h1>Bem-vindo à Oficina Digital</h1>
+                    <p>Selecione uma ferramenta no menu ao lado para começar.</p>
+                </div>
+                <div class="calc-container hidden" id="containerCalculadoraRpm">
+                    <h1>RPM</h1>
+                    <label for="calcRpm" placeholder="VC">Velocidade Corte:</label>
+                    <input type="number" name="calcRpm" id="calcRpm">
+                    <label for="calcD">Diâmetro:</label>
+                    <input type="number" name="calcD" id="calcD">
+                    <button type="button" id="btnCalcular">Calcular</button>
+                </div>
+                <div class="calc-container hidden" id="containerVelocidadeCorte">
+                    <h1>Velocidade de Corte</h1>
+                    <label for="vcDiametro">Diâmetro (mm): </label>
+                    <input type="number" id="vcDiametro" placeholder="Ex: 50">
+                    <label for="vcRpm">RPM: </label>
+                    <input type="number" id="vcRpm" placeholder="Ex: 1200">
+                    <button type="button" id="btnCalcularVc">Calcular Vc</button>
+                </div>
             </main>
         </div>
         <footer>
