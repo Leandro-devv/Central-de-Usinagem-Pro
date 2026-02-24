@@ -20,13 +20,10 @@ const todasTelas = document.querySelectorAll('.calc-container, #home-content');
 
 linksSubmenu.forEach(link => {
     link.addEventListener('click', () => {
-        // 1. "Vassourada" - Esconde tudo que estiver aberto
         todasTelas.forEach(tela => tela.classList.add('hidden'));
 
-        // 2. O Pulo do Gato - Pega o ID da calculadora que está no botão
         const idCalculadora = link.getAttribute('data-calculadora');
-        
-        // 3. Mostra a calculadora certa
+
         const calculadoraParaAbrir = document.getElementById(idCalculadora);
         if (calculadoraParaAbrir) {
             calculadoraParaAbrir.classList.remove('hidden');
@@ -55,7 +52,7 @@ btnCalcular.addEventListener('click',() =>{
         const resultado = document.createElement('div');
         resultado.setAttribute('class','resultado');
 
-        resultado.innerHTML = `Você deve usar: <strong>${rpm.toFixed(0)} RPM</strong>`;
+        resultado.innerHTML = `Cálculo Finalizado: A rotação ideal calculada para este diâmetro e velocidade de corte é de <strong>${rpm.toFixed(0)} RPM.</strong>`;
 
         containerCalculadoraRpm.appendChild(resultado);
     }else{
