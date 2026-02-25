@@ -10,13 +10,16 @@
 </head>
 
 <body>
+    <!-- ==========================CABEÇALHO PRINCIPAL============================= -->
     <header>
         <div class="logo">
             <i class="fa-solid fa-gear"></i>
             <span>CENTRAL DE USINAGEM PRO</span>
         </div>
     </header>
+
     <div class="main-container">
+        <!-- ==============================Menu Lateral================================ -->
         <aside class="sidebar">
             <nav>
                 <div class="menu-item has-dropdown">
@@ -30,18 +33,25 @@
                         <li class="submenu-link" data-calculadora="containerAvancoMesa">Avanço de Mesa</li>
                     </ul>
                 </div>
+
                 <div class="menu-item has-dropdown">
                     <div class="menu-link">
                         <i class="fa-solid fa-calculator"></i>
                         <span>Calculadoras de Roscas</span>
                     </div>
+                    <ul class="submenu">
+                        <li class="submenu-link" data-calculadora="containerRoscaMetrica">Rosca Métrica</li>
+                        <li class="submenu-link" data-calculadora="containerRoscaPol">Rosca Polegada</li>
+                    </ul>
                 </div>
+
                 <div class="menu-item has-dropdown">
                     <div class="menu-link">
                         <i class="fa-solid fa-toolbox"></i>
                         <span>Utilidades</span>
                     </div>
                 </div>
+
                 <div class="menu-item has-dropdown">
                     <div class="menu-link">
                         <i class="fa-solid fa-table-list"></i>
@@ -53,6 +63,7 @@
                         <li class="submenu-link">Ajustes Rolamentos</li>
                     </ul>
                 </div>
+
                 <div class="menu-item has-dropdown">
                     <div class="menu-link">
                         <i class="fa-solid fa-compass-drafting"></i>
@@ -66,45 +77,103 @@
                 </div>
             </nav>
         </aside>
+        <!-- ==========================Conteúdo Principal============================== -->
         <main class="content">
+            <!-- =============================home=================================== -->
             <div id="home-content">
-                <h1>Bem-vindo à Oficina Digital</h1>
-                <p>Selecione uma ferramenta no menu ao lado para começar.</p>
+                <div class="bio-container">
+                    <h1>Bem-vindo à Central de Usinagem Pro</h1>
+                    <p>Com <strong>17 anos de experiência na indústria metalmecânica</strong>, operando e programando
+                        tornos, fresas e diversas máquinas operatrizes, conheço de perto o dia a dia da oficina.</p>
+                    <p>Esta ferramenta nasceu de uma necessidade real: a dificuldade de encontrar cálculos precisos e
+                        fórmulas de forma rápida e organizada durante o setup e a produção.</p>
+                    <p>O objetivo aqui é facilitar a vida do profissional de usinagem, unindo o conhecimento prático do
+                        chão de fábrica com a agilidade da tecnologia digital.</p>
+
+                    <div class="home-instruction">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Selecione uma calculadora no menu ao lado para começar.</span>
+                    </div>
+                </div>
             </div>
+            <!-- =====================Calculadoras===================== -->
+            <!-- =========================RPM========================== -->
             <div class="calc-container hidden" id="containerCalculadoraRpm">
                 <h1>RPM</h1>
                 <label for="calcRpm">Velocidade Corte:</label>
-                <input type="number" name="calcRpm" id="calcRpm" placeholder="m/min (Ex: 220)"
-                    title="Insira a Velocidade de Corte (Vc) recomendada pelo fabricante da ferramenta para o material específico.">
+                <input type="number" id="calcRpm" placeholder="m/min (Ex: 220)">
+
                 <label for="calcD">Diâmetro:</label>
-                <input type="number" name="calcD" id="calcD" placeholder="mm (Ex: 50)"
-                    title="Insira o diâmetro nominal da ferramenta (para fresamento) ou da peça (para torneamento) em milímetros.">
+                <input type="number" id="calcD" placeholder="mm (Ex: 50)">
+
                 <button type="button" id="btnCalcular">Calcular</button>
             </div>
+            <!-- =================Velocidade de Corte================== -->
             <div class="calc-container hidden" id="containerVelocidadeCorte">
                 <h1>Velocidade de Corte</h1>
                 <label for="vcDiametro">Diâmetro (mm): </label>
-                <input type="number" id="vcDiametro" placeholder="Ex: 50" title="Diâmetro nominal da ferramenta ou da peça em milímetros.">
+                <input type="number" id="vcDiametro" placeholder="Ex: 50">
+
                 <label for="vcRpm">RPM: </label>
-                <input type="number" id="vcRpm" placeholder="Ex: 1200" title="Rotações por minuto (min⁻¹) configuradas na máquina.">
+                <input type="number" id="vcRpm" placeholder="Ex: 1200">
+
                 <button type="button" id="btnCalcularVc">Calcular Vc</button>
             </div>
+            <!-- ====================Avanço de Mesa==================== -->
             <div class="calc-container hidden" id="containerAvancoMesa">
                 <h1>Avanço de Mesa</h1>
                 <label for="avancoDente">Avanço por Dente:</label>
-                <input type="number" name="avancoDente" id="avancoDente" placeholder="mm/z (Ex: 0.12)" title="Avanço por dente (fz) - Valor da carga de cavaco por aresta de corte.">
+                <input type="number" id="avancoDente" placeholder="mm/z (Ex: 0.12)">
+
                 <label for="rpmAvancoMesa">RPM:</label>
-                <input type="number" name="rpmAvancoMesa" id="rpmAvancoMesa" placeholder="RPM (Ex: 1500)" title="Rotação da árvore (n) - Rotações por minuto (min⁻¹).">
+                <input type="number" id="rpmAvancoMesa" placeholder="RPM (Ex: 1500)">
+
                 <label for="arestaCorte">Arestas</label>
-                <input type="number" name="arestaCorte" id="arestaCorte" placeholder="Ex: 4" title="Número de arestas de corte (z) - Quantidade de dentes da ferramenta.">
-                <button type="button" id="btnCalcularVc">Calcular Avanço</button>
+                <input type="number" id="arestaCorte" placeholder="Ex: 4">
+
+                <button type="button" id="btnCalcularAvanco">Calcular Avanço</button>
             </div>
+            <!-- ======================ROSCA MÉTRICA===================== -->
+            <div class="calc-container hidden" id="containerRoscaMetrica">
+                <h1>Rosca Métrica (ISO 60°)</h1>
+                <label for="roscaM_D">Diâmetro Nominal (D):</label>
+                <input type="number" id="roscaM_D" placeholder="Ex: 10">
+
+                <label for="roscaM_P">Passo (P):</label>
+                <input type="number" id="roscaM_P" placeholder="mm (Ex: 1.5)">
+
+                <button type="button" id="btnCalcularMetrica">Calcular Parâmetros</button>
+            </div>
+            <!-- ======================ROSCA POLEGADA====================== -->
+            <div class="calc-container hidden" id="containerRoscaPol">
+                <h1>Rosca Polegada (UNC/UNF 60°)</h1>
+                <label for="roscaP_D">Diâmetro Nominal (pol):</label>
+                <input type="number" id="roscaP_D" placeholder="Ex: 0.5">
+
+                <label for="roscaP_TPI">Fios por Polegada (TPI):</label>
+                <input type="number" id="roscaP_TPI" placeholder="Ex: 13">
+
+                <button type="button" id="btnCalcularPol">Calcular Parâmetros</button>
+                <div id="resultado-rosca-pol"></div>
+            </div>
+            <footer class="main-footer">
+                <div class="footer-container">
+                    <span>© 2026 Central de Usinagem Pro | Leandro Oliveira</span>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/leandro-santos-oliv/" target="_blank" ><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/olv_leandro/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </footer>
         </main>
+        <!-- ========================================================================== -->
     </div>
     <footer>
 
     </footer>
+    <!-- =====================JavaScript====================== -->
     <script src="js/main.js"></script>
+    <!-- ===================================================== -->
 </body>
 
 </html>
