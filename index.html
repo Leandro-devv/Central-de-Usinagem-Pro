@@ -16,6 +16,9 @@
             <i class="fa-solid fa-gear"></i>
             <span>CENTRAL DE USINAGEM PRO</span>
         </div>
+        <div class="home-icon-container">
+            <i class="fa-solid fa-house submenu-link logo" data-subMenu="home-content" title="Voltar para Início"></i>
+        </div>
     </header>
 
     <div class="main-container">
@@ -28,9 +31,9 @@
                         <span>Calculadoras de Corte</span>
                     </div>
                     <ul class="submenu">
-                        <li class="submenu-link" data-calculadora="containerCalculadoraRpm">RPM</li>
-                        <li class="submenu-link" data-calculadora="containerVelocidadeCorte">Velocidade de Corte</li>
-                        <li class="submenu-link" data-calculadora="containerAvancoMesa">Avanço de Mesa</li>
+                        <li class="submenu-link" data-subMenu="containerCalculadoraRpm">RPM</li>
+                        <li class="submenu-link" data-subMenu="containerVelocidadeCorte">Velocidade de Corte</li>
+                        <li class="submenu-link" data-subMenu="containerAvancoMesa">Avanço de Mesa</li>
                     </ul>
                 </div>
 
@@ -40,8 +43,8 @@
                         <span>Calculadoras de Roscas</span>
                     </div>
                     <ul class="submenu">
-                        <li class="submenu-link" data-calculadora="containerRoscaMetrica">Rosca Métrica</li>
-                        <li class="submenu-link" data-calculadora="containerRoscaPol">Rosca Polegada</li>
+                        <li class="submenu-link" data-subMenu="containerRoscaMetrica">Rosca Métrica</li>
+                        <li class="submenu-link" data-subMenu="containerRoscaPol">Rosca Polegada</li>
                     </ul>
                 </div>
 
@@ -51,10 +54,10 @@
                         <span>Tabelas</span>
                     </div>
                     <ul class="submenu">
-                        <li class="submenu-link" data-calculadora="containerTabelaRoscaMetrica">Rosca Metrica</li>
-                        <li class="submenu-link" data-calculadora="containerTabelaRoscaPolegada">Rosca em Polegada</li>
-                        <li class="submenu-link" data-calculadora="containerTabelaRoscaNPT">Rosca NPT</li>
-                        <li class="submenu-link" data-calculadora="containerTabelaRolamentos">Ajuste de Rolamento
+                        <li class="submenu-link" data-subMenu="containerTabelaRoscaMetrica">Rosca Metrica</li>
+                        <li class="submenu-link" data-subMenu="containerTabelaRoscaPolegada">Rosca em Polegada</li>
+                        <li class="submenu-link" data-subMenu="containerTabelaRoscaNPT">Rosca NPT</li>
+                        <li class="submenu-link" data-subMenu="containerTabelaRolamentos">Ajuste de Rolamento
                         </li>
                     </ul>
                 </div>
@@ -157,8 +160,435 @@
             </div>
             <!-- ===================================Tabelas====================================== -->
             <!-- ================================Rosca Metrica=================================== -->
-   
-            <!-- =================================Rodapé================================== -->
+            <div class="calc-container container-tabela hidden" id="containerTabelaRoscaMetrica">
+                <h1>Tabelas de Roscas Métricas (ISO)</h1>
+
+                <div class="tabela-secao">
+                    <h3>Métrica Grossa (MA)</h3>
+                    <div class="tabela-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Medida</th>
+                                    <th>Passo (mm)</th>
+                                    <th>Broca (mm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>M3</td>
+                                    <td>0.50</td>
+                                    <td>2.50</td>
+                                </tr>
+                                <tr>
+                                    <td>M4</td>
+                                    <td>0.70</td>
+                                    <td>3.30</td>
+                                </tr>
+                                <tr>
+                                    <td>M5</td>
+                                    <td>0.80</td>
+                                    <td>4.20</td>
+                                </tr>
+                                <tr>
+                                    <td>M6</td>
+                                    <td>1.00</td>
+                                    <td>5.00</td>
+                                </tr>
+                                <tr>
+                                    <td>M8</td>
+                                    <td>1.25</td>
+                                    <td>6.80</td>
+                                </tr>
+                                <tr>
+                                    <td>M10</td>
+                                    <td>1.50</td>
+                                    <td>8.50</td>
+                                </tr>
+                                <tr>
+                                    <td>M12</td>
+                                    <td>1.75</td>
+                                    <td>10.20</td>
+                                </tr>
+                                <tr>
+                                    <td>M16</td>
+                                    <td>2.00</td>
+                                    <td>14.00</td>
+                                </tr>
+                                <tr>
+                                    <td>M20</td>
+                                    <td>2.50</td>
+                                    <td>17.50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tabela-secao">
+                    <h3>Métrica Fina (MB)</h3>
+                    <div class="tabela-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Medida x Passo</th>
+                                    <th>Passo (mm)</th>
+                                    <th>Broca (mm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>M8 x 1.0</td>
+                                    <td>1.00</td>
+                                    <td>7.00</td>
+                                </tr>
+                                <tr>
+                                    <td>M10 x 1.0</td>
+                                    <td>1.00</td>
+                                    <td>9.00</td>
+                                </tr>
+                                <tr>
+                                    <td>M10 x 1.25</td>
+                                    <td>1.25</td>
+                                    <td>8.75</td>
+                                </tr>
+                                <tr>
+                                    <td>M12 x 1.25</td>
+                                    <td>1.25</td>
+                                    <td>10.75</td>
+                                </tr>
+                                <tr>
+                                    <td>M12 x 1.5</td>
+                                    <td>1.50</td>
+                                    <td>10.50</td>
+                                </tr>
+                                <tr>
+                                    <td>M14 x 1.5</td>
+                                    <td>1.50</td>
+                                    <td>12.50</td>
+                                </tr>
+                                <tr>
+                                    <td>M16 x 1.5</td>
+                                    <td>1.50</td>
+                                    <td>14.50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- ================================Rosca Polegada================================== -->
+            <div class="calc-container container-tabela hidden" id="containerTabelaRoscaPolegada">
+                <h1>Tabelas de Roscas Polegada (60°)</h1>
+
+                <div class="tabela-secao">
+                    <h3>Série Grossa (UNC)</h3>
+                    <div class="tabela-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Medida (Pol.)</th>
+                                    <th>Fios (TPI)</th>
+                                    <th>Passo (Ref. mm)</th>
+                                    <th>Broca (mm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1/4"</td>
+                                    <td>20</td>
+                                    <td>1.27</td>
+                                    <td><strong>5.10</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>5/16"</td>
+                                    <td>18</td>
+                                    <td>1.41</td>
+                                    <td><strong>6.60</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>3/8"</td>
+                                    <td>16</td>
+                                    <td>1.58</td>
+                                    <td><strong>8.00</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>7/16"</td>
+                                    <td>14</td>
+                                    <td>1.81</td>
+                                    <td><strong>9.40</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1/2"</td>
+                                    <td>13</td>
+                                    <td>1.95</td>
+                                    <td><strong>10.80</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>9/16"</td>
+                                    <td>12</td>
+                                    <td>2.11</td>
+                                    <td><strong>12.20</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>5/8"</td>
+                                    <td>11</td>
+                                    <td>2.30</td>
+                                    <td><strong>13.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>3/4"</td>
+                                    <td>10</td>
+                                    <td>2.54</td>
+                                    <td><strong>16.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>7/8"</td>
+                                    <td>9</td>
+                                    <td>2.82</td>
+                                    <td><strong>19.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1"</td>
+                                    <td>8</td>
+                                    <td>3.17</td>
+                                    <td><strong>22.25</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tabela-secao">
+                    <h3>Série Fina (UNF)</h3>
+                    <div class="tabela-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Medida (Pol.)</th>
+                                    <th>Fios (TPI)</th>
+                                    <th>Passo (Ref. mm)</th>
+                                    <th>Broca (mm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1/4"</td>
+                                    <td>28</td>
+                                    <td>0.90</td>
+                                    <td><strong>5.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>5/16"</td>
+                                    <td>24</td>
+                                    <td>1.05</td>
+                                    <td><strong>6.90</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>3/8"</td>
+                                    <td>24</td>
+                                    <td>1.05</td>
+                                    <td><strong>8.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>7/16"</td>
+                                    <td>20</td>
+                                    <td>1.27</td>
+                                    <td><strong>9.90</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1/2"</td>
+                                    <td>20</td>
+                                    <td>1.27</td>
+                                    <td><strong>11.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>5/8"</td>
+                                    <td>18</td>
+                                    <td>1.41</td>
+                                    <td><strong>14.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>3/4"</td>
+                                    <td>16</td>
+                                    <td>1.58</td>
+                                    <td><strong>17.50</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- ===================================Rosca NPT==================================== -->
+            <div class="calc-container container-tabela hidden" id="containerTabelaRoscaNPT">
+                <h1>Tabela de Rosca NPT (Cónica)</h1>
+                <div class="tabela-secao">
+                    <h3>Padrão Americano para Tubos</h3>
+                    <div class="tabela-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Medida (Pol.)</th>
+                                    <th>Fios (TPI)</th>
+                                    <th>Ext. Tubo (mm)</th>
+                                    <th>Broca (mm)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1/8"</td>
+                                    <td>27</td>
+                                    <td>10.3</td>
+                                    <td><strong>8.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1/4"</td>
+                                    <td>18</td>
+                                    <td>13.7</td>
+                                    <td><strong>11.00</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>3/8"</td>
+                                    <td>18</td>
+                                    <td>17.1</td>
+                                    <td><strong>14.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1/2"</td>
+                                    <td>14</td>
+                                    <td>21.3</td>
+                                    <td><strong>17.80</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>3/4"</td>
+                                    <td>14</td>
+                                    <td>26.7</td>
+                                    <td><strong>23.00</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1"</td>
+                                    <td>11.5</td>
+                                    <td>33.4</td>
+                                    <td><strong>29.00</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1.1/4"</td>
+                                    <td>11.5</td>
+                                    <td>42.2</td>
+                                    <td><strong>37.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>1.1/2"</td>
+                                    <td>11.5</td>
+                                    <td>48.3</td>
+                                    <td><strong>43.50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>2"</td>
+                                    <td>11.5</td>
+                                    <td>60.3</td>
+                                    <td><strong>55.50</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- =============================Ajuste de Rolamento================================ -->
+            <div class="calc-container container-tabela hidden" id="containerTabelaRolamentos">
+                <h1>Tolerâncias para Ajuste de Rolamentos</h1>
+
+                <div class="tabela-secao">
+                    <h3>1. Ajuste no Eixo (Tolerância k6)</h3>
+                    <p class="info-ajuda">Para eixos rotativos e carga normal. (Medidas em mm)</p>
+                    <div class="tabela-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Diâmetro (d)</th>
+                                    <th>Ajuste k6 (μm)</th>
+                                    <th>Medida Final do Eixo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>De 10 a 18</td>
+                                    <td>+1 / +12</td>
+                                    <td>+0.001 a +0.012</td>
+                                </tr>
+                                <tr>
+                                    <td>De 19 a 30</td>
+                                    <td>+2 / +15</td>
+                                    <td>+0.002 a +0.015</td>
+                                </tr>
+                                <tr>
+                                    <td>De 31 a 50</td>
+                                    <td>+2 / +18</td>
+                                    <td>+0.002 a +0.018</td>
+                                </tr>
+                                <tr>
+                                    <td>De 51 a 80</td>
+                                    <td>+2 / +21</td>
+                                    <td>+0.002 a +0.021</td>
+                                </tr>
+                                <tr>
+                                    <td>De 81 a 120</td>
+                                    <td>+3 / +25</td>
+                                    <td>+0.003 a +0.025</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tabela-secao">
+                    <h3>2. Ajuste no Alojamento/Furo (Tolerância H7)</h3>
+                    <p class="info-ajuda">Furo fixo (carcaça). (Medidas em mm)</p>
+                    <div class="tabela-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Diâmetro (D)</th>
+                                    <th>Ajuste H7 (μm)</th>
+                                    <th>Medida Final do Furo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>De 10 a 18</td>
+                                    <td>0 / +18</td>
+                                    <td>0.000 a +0.018</td>
+                                </tr>
+                                <tr>
+                                    <td>De 19 a 30</td>
+                                    <td>0 / +21</td>
+                                    <td>0.000 a +0.021</td>
+                                </tr>
+                                <tr>
+                                    <td>De 31 a 50</td>
+                                    <td>0 / +25</td>
+                                    <td>0.000 a +0.025</td>
+                                </tr>
+                                <tr>
+                                    <td>De 51 a 80</td>
+                                    <td>0 / +30</td>
+                                    <td>0.000 a +0.030</td>
+                                </tr>
+                                <tr>
+                                    <td>De 81 a 120</td>
+                                    <td>0 / +35</td>
+                                    <td>0.000 a +0.035</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p style="text-align:center; font-size: 0.85rem; color: var(--accent-color); margin-top: 15px;">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Nota: μm (mícrons). 10μm = 0,01mm.
+                </p>
+            </div>
+            <!-- ====================================Rodapé====================================== -->
             <footer class="main-footer">
                 <div class="footer-container">
                     <span>© 2026 Central de Usinagem Pro | Leandro Oliveira</span>

@@ -15,7 +15,6 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Removido overflow: hidden para permitir que a estrutura role se necessário */
 body {
     background-color: var(--bg-dark);
     color: var(--text-color);
@@ -27,9 +26,20 @@ header {
     height: 60px;
     background-color: var(--bg-sidebar);
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     border-bottom: 2px solid var(--accent-color); 
+}
+
+.home-icon-container {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.home-icon-container:hover {
+    filter: brightness(1.1);
+    font-size: 1.1rem;
 }
 
 .logo {
@@ -42,7 +52,6 @@ header {
 
 .main-container {
     display: flex; 
-    /* Garante que o container use todo o espaço abaixo do header */
     height: calc(100vh - 60px); 
     width: 100vw;
 }
@@ -140,7 +149,7 @@ header {
     box-sizing: border-box; 
     position: relative;
     overflow-y: auto;
-    padding: 0; 
+    padding: 0;
 }
 
 #home-content, .calc-container {
@@ -159,6 +168,21 @@ header {
     border-radius: 10px;
     color: var(--text-color);
     padding: 20px;
+}
+
+.container-tabela {
+    width: 95% !important; 
+    max-width: 1000px !important; 
+    min-height: auto !important; 
+    margin-top: 30px;
+    margin-bottom: 30px; 
+    align-self: center; 
+}
+
+
+.container-tabela .tabela-wrapper {
+    width: 100%;
+    overflow-x: auto; 
 }
 
 .hidden {
@@ -186,6 +210,7 @@ header {
 }
 /* ========================== TABELAS TÉCNICAS ========================= */
 .tabela-secao {
+    margin-top: 10PX;
     width: 100%;
     margin-bottom: 40px;
     background-color: #1a1a1a;

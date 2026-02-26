@@ -18,7 +18,7 @@ dropdowns.forEach(item => {
     });
 });
 /* ======================================================
-   CONTROLE DAS TELAS DAS CALCULADORAS
+   CONTROLE DAS TELAS 
    - Esconde todas as telas
    - Mostra apenas a selecionada no submenu
 ====================================================== */
@@ -27,13 +27,22 @@ const todasTelas = document.querySelectorAll('.calc-container, #home-content');
 
 linksSubmenu.forEach(link => {
     link.addEventListener('click', () => {
-        todasTelas.forEach(tela => tela.classList.add('hidden'));
+        
+        todasTelas.forEach(tela => {
+            tela.classList.add('hidden');
+        });
 
-        const idCalculadora = link.getAttribute('data-calculadora');
+        const idAlvo = link.getAttribute('data-subMenu');
 
-        const calculadoraParaAbrir = document.getElementById(idCalculadora);
-        if (calculadoraParaAbrir) {
-            calculadoraParaAbrir.classList.remove('hidden');
+        const elementoParaAbrir = document.getElementById(idAlvo);
+        
+        if (elementoParaAbrir) {
+           
+            elementoParaAbrir.classList.remove('hidden');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            console.error("O ID '" + idAlvo + "' não foi encontrado no HTML.");
         }
     });
 });
