@@ -112,10 +112,10 @@ btnCalcularAvanco.addEventListener('click', () => {
     let rpm = Number(document.getElementById('rpmAvancoMesa').value);
     let z = Number(document.getElementById('arestaCorte').value);
 
-    
+
     let resultadoAntigo = containerAvanco.querySelector('.resultado');
-    if (resultadoAntigo) { 
-        resultadoAntigo.remove(); 
+    if (resultadoAntigo) {
+        resultadoAntigo.remove();
     }
 
     if (fz > 0 && rpm > 0 && z > 0) {
@@ -147,63 +147,70 @@ btnCalcularMetrica.addEventListener('click', () => {
     if (D > 0 && P > 0) {
         let broca = D - P;
         let h = 0.6134 * P;
-        
+
         const resultado = document.createElement('div');
         resultado.setAttribute('class', 'resultado');
-        
+
         resultado.innerHTML = `
             BROCA DE PRÉ-FURO: <strong>${broca.toFixed(2)} mm</strong><br>
             Altura do Filete (h): <strong>${h.toFixed(3)} mm</strong>
         `;
-        
+
         container.appendChild(resultado);
     } else {
         alert("Preencha o Diâmetro e o Passo corretamente.");
     }
 });
 /* ======================================================
-   CALCULADORA DE Rosca Polegada (UNC/UNF)
+   CALCULADORA DE Rosca Polegada (UNC/UNF) - CORRIGIDA
 ====================================================== */
 const btnCalcularPol = document.querySelector('#btnCalcularPol');
 
 btnCalcularPol.addEventListener('click', () => {
     let container = document.getElementById('containerRoscaPol');
-    
-    // D_pol = Diâmetro nominal em polegada (ex: 0.5 para 1/2")
-    // TPI = Fios por polegada
-    let D_pol = Number(document.getElementById('roscaP_D').value);
+    let textoDigitado = document.getElementById('roscaP_D').value.replace(',', '.').trim();
     let TPI = Number(document.getElementById('roscaP_TPI').value);
 
-    // Limpa resultado anterior
-    let resultadoAntigo = container.querySelector('.resultado');
+    let resultadoAntigo = container.querySelector('.resultado-final');
     if (resultadoAntigo) { resultadoAntigo.remove(); }
 
-    if (D_pol > 0 && TPI > 0) {
-        // 1. Converter Diâmetro para mm
-        let D_mm = D_pol * 25.4;
-        
-        // 2. Calcular o Passo (P) em mm
-        let passo_mm = 25.4 / TPI;
-        
-        // 3. Calcular a Broca (D - P)
-        let broca = D_mm - passo_mm;
-        
-        // 4. Altura do filete (h) para 60°
-        let h = 0.6134 * passo_mm;
+    if (textoDigitado !== "" && TPI > 0) {
+        let diametroFinal;
+
+        if (textoDigitado.includes('/')) {
+            let partes = textoDigitado.split(' ');
+            if (partes.length > 1) {
+                let inteiro = parseFloat(partes[0]);
+                let fracao = partes[1].split('/');
+                diametroFinal = (inteiro + (fracao[0] / fracao[1])) * 25.4;
+            } else {
+                let fracao = partes[0].split('/');
+                diametroFinal = (fracao[0] / fracao[1]) * 25.4;
+            }
+        } else {
+            let valorNum = parseFloat(textoDigitado);
+            diametroFinal = (valorNum > 5) ? valorNum : valorNum * 25.4;
+        }
+
+        let passo = 25.4 / TPI;
+        let h = 0.6134 * passo; 
+        let broca = diametroFinal - passo;
 
         const resultado = document.createElement('div');
-        resultado.setAttribute('class', 'resultado');
-        
+        resultado.classList.add('resultado-final');
+
         resultado.innerHTML = `
-            DIÂMETRO NOMINAL: <strong>${D_mm.toFixed(2)} mm</strong><br>
-            PASSO CALCULADO: <strong>${passo_mm.toFixed(3)} mm</strong><br>
-            BROCA DE PRÉ-FURO: <strong>${broca.toFixed(2)} mm</strong><br>
-            ALTURA DO FILETE (h): <strong>${h.toFixed(3)} mm</strong>
+            <h3>Cálculo Finalizado:</h3>
+            Diâmetro: <strong>${diametroFinal.toFixed(2)} mm</strong><br>
+            Fios por Pol. (TPI): <strong>${TPI}</strong><br>
+            Passo: <strong>${passo.toFixed(3)} mm</strong><br>
+            Altura do dente (h): <strong>${h.toFixed(3)} mm</strong><br>
+            <span class="destaque-broca">FURO DA BROCA: <strong>${broca.toFixed(2)} mm</strong></span>
         `;
         
         container.appendChild(resultado);
+
     } else {
-        alert("Por favor, preencha o Diâmetro (decimal) e os Fios por Polegada (TPI).");
+        alert("Preencha os campos corretamente, meu parceiro!");
     }
 });
-
