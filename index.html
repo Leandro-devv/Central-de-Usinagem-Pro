@@ -68,9 +68,12 @@
                         <span>Engenharia</span>
                     </div>
                     <ul class="submenu">
-                        <li class="submenu-link"></li>
-                        <li class="submenu-link"></li>
-                        <li class="submenu-link"></li>
+                        <li class="submenu-link" data-subMenu="containerEngenhariaCalcEngrenagens">Calculadora de
+                            Engrenagens</li>
+                        <li class="submenu-link" data-subMenu="containerEngenhariaCalcPesoMaterial">Calculadora de Peso
+                            de Materiais</li>
+                        <li class="submenu-link" data-subMenu="containerEngenhariaConversorDureza">Conversor de Dureza
+                            (Estimativa)</li>
                     </ul>
                 </div>
             </nav>
@@ -587,6 +590,39 @@
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     Nota: μm (mícrons). 10μm = 0,01mm.
                 </p>
+            </div>
+            <!-- ==================================Engenharia==================================== -->
+            <!-- ============================Calculadora Engrenagens============================= -->
+            <div class="calc-container container-engenharia hidden" id="containerEngenhariaCalcEngrenagens">
+                <h1>Cálculo de Engrenagem Cilíndrica</h1>
+
+                <label for="modulo">Módulo (M):</label>
+                <input type="number" name="modulo" id="modulo" step="0.01" placeholder="Ex: 2.5"
+                    title="Digite o módulo da engrenagem (Ex: 1, 1.5, 2, 2.5...)">
+
+                <label for="numeroDente">Número de Dentes (Z):</label>
+                <input type="number" name="numeroDente" id="numeroDente" - placeholder="Ex: 
+                
+                30" title="Digite o número total de dentes da engrenagem.">
+
+                <button id="btnCalculcarEngrenagem">Calcular</button>
+            </div>
+            <!-- ==============================Conversor de Durezas============================== -->
+            <div class="calc-container container-engenharia hidden" id="containerEngenhariaConversorDureza">
+                <h1>Conversor de Dureza (Estimativa)</h1>
+
+                <label for="tipoDureza">Escala de Origem:</label>
+                <select id="tipoDureza">
+                    <option value="HRC">Rockwell C (HRC)</option>
+                    <option value="HB">Brinell (HB)</option>
+                    <option value="HV">Vickers (HV)</option>
+                </select>
+
+                <label for="valorDureza">Valor para Converter:</label>
+                <input type="number" id="valorDureza" placeholder="Ex: 45"
+                    title="Digite o valor da dureza que deseja converter">
+
+                <button id="btnConverterDureza">Converter</button>
             </div>
             <!-- ====================================Rodapé====================================== -->
             <footer class="main-footer">

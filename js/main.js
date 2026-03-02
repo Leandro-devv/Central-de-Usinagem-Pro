@@ -27,7 +27,7 @@ const todasTelas = document.querySelectorAll('.calc-container, #home-content');
 
 linksSubmenu.forEach(link => {
     link.addEventListener('click', () => {
-        
+
         todasTelas.forEach(tela => {
             tela.classList.add('hidden');
         });
@@ -35,11 +35,11 @@ linksSubmenu.forEach(link => {
         const idAlvo = link.getAttribute('data-subMenu');
 
         const elementoParaAbrir = document.getElementById(idAlvo);
-        
+
         if (elementoParaAbrir) {
-           
+
             elementoParaAbrir.classList.remove('hidden');
-            
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             console.error("O ID '" + idAlvo + "' não foi encontrado no HTML.");
@@ -171,7 +171,7 @@ btnCalcularMetrica.addEventListener('click', () => {
     }
 });
 /* ======================================================
-   CALCULADORA DE Rosca Polegada (UNC/UNF) - CORRIGIDA
+   CALCULADORA DE Rosca Polegada (UNC/UNF)
 ====================================================== */
 const btnCalcularPol = document.querySelector('#btnCalcularPol');
 
@@ -181,7 +181,10 @@ btnCalcularPol.addEventListener('click', () => {
     let TPI = Number(document.getElementById('roscaP_TPI').value);
 
     let resultadoAntigo = container.querySelector('.resultado-final');
-    if (resultadoAntigo) { resultadoAntigo.remove(); }
+    if (resultadoAntigo) {
+        resultadoAntigo.remove();
+
+    }
 
     if (textoDigitado !== "" && TPI > 0) {
         let diametroFinal;
@@ -202,7 +205,7 @@ btnCalcularPol.addEventListener('click', () => {
         }
 
         let passo = 25.4 / TPI;
-        let h = 0.6134 * passo; 
+        let h = 0.6134 * passo;
         let broca = diametroFinal - passo;
 
         const resultado = document.createElement('div');
@@ -216,10 +219,92 @@ btnCalcularPol.addEventListener('click', () => {
             Altura do dente (h): <strong>${h.toFixed(3)} mm</strong><br>
             <span class="destaque-broca">FURO DA BROCA: <strong>${broca.toFixed(2)} mm</strong></span>
         `;
-        
+
         container.appendChild(resultado);
 
     } else {
-        alert("Preencha os campos corretamente, meu parceiro!");
+        alert("Preencha os campos corretamente");
+    }
+});
+/* ======================================================
+   CALCULADORA DE ENGRENAGENS 
+====================================================== */
+const btnCalculcarEngrenagem = document.getElementById('btnCalculcarEngrenagem');
+
+btnCalculcarEngrenagem.addEventListener('click', () => {
+    const container = document.getElementById('containerEngenhariaCalcEngrenagens');
+    let modulo = parseFloat(document.getElementById('modulo').value);
+    let numeroDente = Number(document.getElementById('numeroDente').value);
+
+    let resultadoAntigo = document.querySelector('.resultado');
+    if (resultadoAntigo) {
+        resultadoAntigo.remove();
+    }
+
+    if (modulo > 0 && numeroDente > 0) {
+        let diametroPrimitivo = modulo * numeroDente;
+        let diametroExterno = modulo * (numeroDente + 2);
+        let alturaDente = 2.166 * modulo;
+
+        const resultado = document.createElement('div');
+        resultado.setAttribute('class', 'resultado');
+
+        resultado.innerHTML = `
+            <p><strong>Diâmetro Externo:</strong> ${diametroExterno.toFixed(2)} mm</p>
+            <p><strong>Diâmetro Primitivo:</strong> ${diametroPrimitivo.toFixed(2)} mm</p>
+            <p><strong>Altura do Dente:</strong> ${alturaDente.toFixed(2)} mm</p>
+        `;
+
+        container.appendChild(resultado);
+
+    } else {
+        alert("Preencha os campos corretamente");
+    }
+})
+/* ======================================================
+   CONVERSOR DE DUREZA
+====================================================== */
+const btnConverter = document.getElementById('btnConverterDureza');
+
+btnConverter.addEventListener('click', () => {
+    const container = document.getElementById('containerEngenhariaConversorDureza');
+    const tipo = document.getElementById('tipoDureza').value;
+    const valor = parseFloat(document.getElementById('valorDureza').value);
+
+    if (valor > 0) {
+
+        let hrc, hb, hv;
+
+        let resultadoAntigo = document.querySelector('.resultado');
+        if (resultadoAntigo) resultadoAntigo.remove();
+    
+        if (tipo === "HRC") {
+            hrc = valor;
+            hb = valor / 0.11; 
+            
+            hb = (valor * 10); 
+            hv = hb;
+        } else if (tipo === "HB") {
+            hb = valor;
+            hrc = (valor / 10);
+            hv = hb;
+        } else {
+            hv = valor;
+            hb = valor;
+            hrc = (valor / 10);
+        }
+
+        const resultado = document.createElement('div');
+        resultado.setAttribute('class', 'resultado');
+
+        resultado.innerHTML = `
+            <p><i class="fa-solid fa-layer-group"></i> <strong>Rockwell C:</strong> ~${hrc.toFixed(1)} HRC</p>
+            <p><i class="fa-solid fa-circle"></i> <strong>Brinell:</strong> ~${hb.toFixed(0)} HB</p>
+            <p><i class="fa-solid fa-v"></i> <strong>Vickers:</strong> ~${hv.toFixed(0)} HV</p>
+            <small >* Valores aproximados para aços carbono e liga.</small>
+        `;
+        container.appendChild(resultado);
+    }else{
+        alert("Digite um valor válido");
     }
 });
