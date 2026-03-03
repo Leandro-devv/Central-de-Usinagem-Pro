@@ -21,6 +21,35 @@ body {
     min-height: 100vh;
 }
 
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #1e1e1e; 
+    color: #ffffff;            
+    border: 1px solid #333;   
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+}
+
+select:focus {
+    border-color: var(--accent-color);  
+    outline: none;
+}
+
+select option {
+    background-color: #1e1e1e;
+    color: white;
+}
+
 /* ==================ESTRUTURA DE LAYOUT (HEADER E CONTAINERS)====================== */
 header {
     height: 60px;

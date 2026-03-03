@@ -50,7 +50,7 @@ linksSubmenu.forEach(link => {
    CALCULADORA DE RPM
    Fórmula: RPM = (Vc × 1000) / (π × D)
 ====================================================== */
-const btnCalcular = document.querySelector('#btnCalcular');
+const btnCalcular = document.getElementById('btnCalcular');
 
 btnCalcular.addEventListener('click', () => {
     let containerCalculadoraRpm = document.getElementById('containerCalculadoraRpm');
@@ -81,7 +81,7 @@ btnCalcular.addEventListener('click', () => {
    CALCULADORA DE VELOCIDADE DE CORTE
    Fórmula: (Diametro * PI *Rpm)/1000
 ====================================================== */
-const btnCalcularVelocidadeCorte = document.querySelector('#btnCalcularVc');
+const btnCalcularVelocidadeCorte = document.getElementById('btnCalcularVc');
 
 btnCalcularVelocidadeCorte.addEventListener('click', () => {
     let containerCalculadoraVelocidadeCorte = document.getElementById('containerVelocidadeCorte');
@@ -112,7 +112,7 @@ btnCalcularVelocidadeCorte.addEventListener('click', () => {
    CALCULADORA DE Avanço de Mesa
    Fórmula: fz * RPM * Z
 ====================================================== */
-const btnCalcularAvanco = document.querySelector('#btnCalcularAvanco');
+const btnCalcularAvanco = document.getElementById('btnCalcularAvanco');
 
 btnCalcularAvanco.addEventListener('click', () => {
     let containerAvanco = document.getElementById('containerAvancoMesa');
@@ -143,7 +143,7 @@ btnCalcularAvanco.addEventListener('click', () => {
 /* ======================================================
    CALCULADORA DE Rosca Métrica
 ====================================================== */
-const btnCalcularMetrica = document.querySelector('#btnCalcularMetrica');
+const btnCalcularMetrica = document.getElementById('btnCalcularMetrica');
 
 btnCalcularMetrica.addEventListener('click', () => {
     let container = document.getElementById('containerRoscaMetrica');
@@ -173,7 +173,7 @@ btnCalcularMetrica.addEventListener('click', () => {
 /* ======================================================
    CALCULADORA DE Rosca Polegada (UNC/UNF)
 ====================================================== */
-const btnCalcularPol = document.querySelector('#btnCalcularPol');
+const btnCalcularPol = document.getElementById('btnCalcularPol');
 
 btnCalcularPol.addEventListener('click', () => {
     let container = document.getElementById('containerRoscaPol');
@@ -276,7 +276,9 @@ btnConverter.addEventListener('click', () => {
         let hrc, hb, hv;
 
         let resultadoAntigo = document.querySelector('.resultado');
-        if (resultadoAntigo) resultadoAntigo.remove();
+        if (resultadoAntigo) {
+            resultadoAntigo.remove();
+        }
     
         if (tipo === "HRC") {
             hrc = valor;
@@ -298,13 +300,69 @@ btnConverter.addEventListener('click', () => {
         resultado.setAttribute('class', 'resultado');
 
         resultado.innerHTML = `
-            <p><i class="fa-solid fa-layer-group"></i> <strong>Rockwell C:</strong> ~${hrc.toFixed(1)} HRC</p>
-            <p><i class="fa-solid fa-circle"></i> <strong>Brinell:</strong> ~${hb.toFixed(0)} HB</p>
-            <p><i class="fa-solid fa-v"></i> <strong>Vickers:</strong> ~${hv.toFixed(0)} HV</p>
+            <p><strong>Rockwell C:</strong> ~${hrc.toFixed(1)} HRC</p>
+            <p><strong>Brinell:</strong> ~${hb.toFixed(0)} HB</p>
+            <p> <strong>Vickers:</strong> ~${hv.toFixed(0)} HV</p>
             <small >* Valores aproximados para aços carbono e liga.</small>
         `;
         container.appendChild(resultado);
     }else{
         alert("Digite um valor válido");
     }
+});
+/* ======================================================
+   CALCULADORA DE PESO DE MATERIAL
+====================================================== */
+const btnCalcularPesoMaterial = document.getElementById('btnCalcularPesoMaterial');
+
+btnCalcularPesoMaterial.addEventListener('click', () => {
+    const container = document.getElementById('containerEngenhariaCalcPesoMaterial');
+    const tipoMaterial = document.getElementById('tipoMaterial').value;
+    const tipoBarra = document.getElementById('tipoBarra').value;
+    let comprimento = parseFloat(document.getElementById('comprimentoBarra').value);
+    let comprimentoMM = comprimento * 1000;
+    let diametroLado = parseFloat(document.getElementById('diametroLado').value)
+
+    let densidade, pesoFinal;
+
+
+
+    if(comprimento > 0 && diametroLado > 0){
+        
+        let resultadoAntigo = document.querySelector('.resultado');
+        if (resultadoAntigo) {
+            resultadoAntigo.remove();
+        }
+
+        if(tipoMaterial === "aluminio" ){
+                densidade = 2.70;
+        }else if(tipoMaterial === "acoCarbono"){
+                densidade = 7.85;
+        }else if(tipoMaterial === "latao"){
+                densidade = 8.50;
+        }else if(tipoMaterial === "acoInox"){
+                densidade = 8.00;
+        };
+
+        if( tipoBarra === "cilindrica"){
+            let raio = diametroLado/2;
+            pesoFinal = (Math.PI * Math.pow(raio, 2) * comprimentoMM * densidade)/1000000;
+        }else if(tipoBarra === "quadrada"){
+            pesoFinal = (diametroLado * diametroLado * comprimentoMM * densidade)/1000000
+        }
+        
+        const resultado = document.createElement('div');
+        resultado.setAttribute('class', 'resultado');
+
+        resultado.innerHTML = `<p><strong>Peso Estimado:</strong> ${pesoFinal.toFixed(3)} Kg</p>`;
+
+        container.appendChild(resultado);
+
+
+    }else{
+        alert("Digite um valor válido");
+    }
+
+
+
 });

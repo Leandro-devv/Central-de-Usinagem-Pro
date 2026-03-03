@@ -70,10 +70,10 @@
                     <ul class="submenu">
                         <li class="submenu-link" data-subMenu="containerEngenhariaCalcEngrenagens">Calculadora de
                             Engrenagens</li>
-                        <li class="submenu-link" data-subMenu="containerEngenhariaCalcPesoMaterial">Calculadora de Peso
-                            de Materiais</li>
                         <li class="submenu-link" data-subMenu="containerEngenhariaConversorDureza">Conversor de Dureza
                             (Estimativa)</li>
+                        <li class="submenu-link" data-subMenu="containerEngenhariaCalcPesoMaterial">Calculadora de Peso
+                            de Materiais</li>
                     </ul>
                 </div>
             </nav>
@@ -601,9 +601,7 @@
                     title="Digite o módulo da engrenagem (Ex: 1, 1.5, 2, 2.5...)">
 
                 <label for="numeroDente">Número de Dentes (Z):</label>
-                <input type="number" name="numeroDente" id="numeroDente" - placeholder="Ex: 
-                
-                30" title="Digite o número total de dentes da engrenagem.">
+                <input type="number" name="numeroDente" id="numeroDente" - placeholder="Ex: 30" title="Digite o número total de dentes da engrenagem.">
 
                 <button id="btnCalculcarEngrenagem">Calcular</button>
             </div>
@@ -623,6 +621,31 @@
                     title="Digite o valor da dureza que deseja converter">
 
                 <button id="btnConverterDureza">Converter</button>
+            </div>
+            <!-- ==============================Calculadora de peso=============================== -->
+            <div class="calc-container container-engenharia hidden" id="containerEngenhariaCalcPesoMaterial">
+                <h1>Calculadora de Peso de Materiais</h1>
+
+                <label for="tipoMaterial">tipo de material: </label>
+                <select id="tipoMaterial">
+                    <option value="aluminio">aluminio</option>
+                    <option value="acoCarbono">Aço Carbono</option>
+                    <option value="latao">Latão</option>
+                    <option value="acoInox">Aço INOX</option>
+                </select>
+
+                <label for="tipoBarra">Tipo da Barra</label>
+                <select name="tipoBarra" id="tipoBarra">
+                    <option value="cilindrica">Cilíndrica</option>
+                    <option value="quadrada">Quadrada</option>
+                </select>
+                <label for="diametroLado">Diametro: (mm) / Espesurra: (mm)</label>
+                <input type="number" name="diametroLado" id="diametroLado">
+                <label for="comprimentoBarra">Comprimento: (M)</label>
+                <input type="number" name="comprimentoBarra" id="comprimentoBarra">
+
+                <button type="button" id="btnCalcularPesoMaterial">Calcular</button>
+
             </div>
             <!-- ====================================Rodapé====================================== -->
             <footer class="main-footer">
