@@ -47,6 +47,38 @@ linksSubmenu.forEach(link => {
     });
 });
 /* ======================================================
+   CONTROLE DO MENU MOBILE (Hambúrguer)
+   - Abre/Fecha a barra lateral no celular
+   - Fecha a barra ao selecionar uma calculadora
+====================================================== */
+const btnMenuMobile = document.getElementById('btnMenuMobile');
+const sidebar = document.querySelector('.sidebar');
+const home = document.getElementById('home-content');
+
+if (btnMenuMobile && sidebar) {
+    btnMenuMobile.addEventListener('click', () => {
+
+        
+        sidebar.classList.toggle('active');
+        
+        const icone = btnMenuMobile.querySelector('i');
+        icone.classList.toggle('fa-bars');
+        icone.classList.toggle('fa-xmark');
+    });
+}
+
+linksSubmenu.forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        // Volta o ícone para as barrinhas
+        const icone = btnMenuMobile.querySelector('i');
+        if(icone) {
+            icone.classList.add('fa-bars');
+            icone.classList.remove('fa-xmark');
+        }
+    });
+});
+/* ======================================================
    CALCULADORA DE RPM
    Fórmula: RPM = (Vc × 1000) / (π × D)
 ====================================================== */
@@ -362,7 +394,6 @@ btnCalcularPesoMaterial.addEventListener('click', () => {
     }else{
         alert("Digite um valor válido");
     }
-
 
 
 });

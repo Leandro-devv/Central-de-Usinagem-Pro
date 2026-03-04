@@ -79,6 +79,14 @@ header {
     font-weight: bold;
 }
 
+button.logo {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 24px; 
+}
+
 .main-container {
     display: flex; 
     height: calc(100vh - 60px); 
@@ -86,6 +94,21 @@ header {
 }
 
 /* =======================MENU LATERAL (SIDEBAR E NAVEGAÇÃO)======================== */
+.btn-mobile {
+    display: none; 
+    background: transparent;
+    color: var(--accent-color);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.icon-mobile {
+    display: none; 
+    cursor: pointer;
+}
+
 .sidebar {
     width: 250px;
     background-color: var(--bg-sidebar);
@@ -339,6 +362,21 @@ table td:last-child {
     color: var(--accent-color); 
     transform: scale(1.1); 
 }
+
+.btn-mobile {
+    display: none; 
+    background: #2c2c2c; 
+    color: var(--accent-color);
+    border: 1px solid #444;
+    padding: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    right: 15px; 
+    z-index: 1001;
+    border-radius: 8px;
+}
 /* ======================== RESULTADO E ANIMAÇÕES ======================== */
 .resultado, .resultado-final {
     margin-top: 20px;
@@ -386,4 +424,57 @@ table td:last-child {
         transform: scale(1);
     }
 }
-/* ====================================================================== */
+/* ======================== Mobile ======================== */
+
+/* ==========================================================
+   CONFIGURAÇÕES MOBILE / TABLET (FINAL DO ARQUIVO)
+   ========================================================== */
+@media (max-width: 1024px) {
+
+    .home-icon-container {
+        display: none; 
+    }
+
+    .btn-mobile {
+        display: block; 
+    }
+
+    .icon-desktop {
+        display: none; /* Esconde a engrenagem no celular */
+    }
+
+    .icon-mobile {
+        display: block; 
+        color: var(--accent-color);
+        
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -100%; 
+        width: 250px;
+        height: 100vh;
+        z-index: 1000;
+        transition: 0.4s ease;
+    }
+
+    .sidebar.active {
+        left: 0; 
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .calc-container {
+        width: 90%;
+        margin: 15px auto;
+    }
+
+    
+    footer {
+        flex-direction: column;
+        
+    }
+}

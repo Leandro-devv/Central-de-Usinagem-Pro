@@ -13,12 +13,16 @@
     <!-- ==========================CABEÇALHO PRINCIPAL============================= -->
     <header>
         <div class="logo">
-            <i class="fa-solid fa-gear"></i>
+            <i class="fa-solid fa-house submenu-link icon-mobile" data-subMenu="home-content" title="Início"></i>
+            <i class="fa-solid fa-gear icon-desktop"></i>
             <span>CENTRAL DE USINAGEM PRO</span>
         </div>
         <div class="home-icon-container">
             <i class="fa-solid fa-house submenu-link logo" data-subMenu="home-content" title="Voltar para Início"></i>
         </div>
+        <button id="btnMenuMobile" class="logo btn-mobile">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </header>
 
     <div class="main-container">
@@ -601,7 +605,8 @@
                     title="Digite o módulo da engrenagem (Ex: 1, 1.5, 2, 2.5...)">
 
                 <label for="numeroDente">Número de Dentes (Z):</label>
-                <input type="number" name="numeroDente" id="numeroDente" - placeholder="Ex: 30" title="Digite o número total de dentes da engrenagem.">
+                <input type="number" name="numeroDente" id="numeroDente" - placeholder="Ex: 30"
+                    title="Digite o número total de dentes da engrenagem.">
 
                 <button id="btnCalculcarEngrenagem">Calcular</button>
             </div>
